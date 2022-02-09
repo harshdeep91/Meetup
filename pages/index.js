@@ -22,7 +22,14 @@ const meetups=[
           address:"panjra"
     }
 ]
-function HomePage(params) {
-    return <MeetupList meetups={meetups}/>
+function HomePage(props) {
+    return <MeetupList meetups={props.meeting}/>
+}
+export async function getStaticProps(){
+  return {
+        props:{
+              meeting:meetups
+        }
+  };
 }
 export default HomePage;
