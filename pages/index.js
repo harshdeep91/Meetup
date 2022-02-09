@@ -1,3 +1,4 @@
+import Layout from "../components/layout/Layout";
 import MeetupList from "../components/meetups/MeetupList";
 const meetups=[
     {
@@ -22,9 +23,6 @@ const meetups=[
     }
 ]
 function HomePage(params) {
-    return <>
-    <h1>This is HomePage</h1>
-    <MeetupList meetups={meetups}/>
-    </>
+    return <Layout><MeetupList meetups={meetups}/></Layout>
 }
 export default HomePage;

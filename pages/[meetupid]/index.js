@@ -7,4 +7,5 @@ function RandomPage(params) {
     
     </>
 }
+
 export default RandomPage;
