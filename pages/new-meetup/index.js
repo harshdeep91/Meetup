@@ -5,7 +5,7 @@ function meetuphandler(event){
 }
     return <>
     <h1>This is NewmeetupPage</h1>
-    <Meetupform onAddMeetup={meetuphandler}/>
+    <Meetupform OnAddMeetup={meetuphandler}/>
     </>
 }
 export default NewmeetupPage;
