@@ -6,7 +6,7 @@ async function handler(req,res) {
         // const {title,img,address,description}=data;
       const client=await MongoClient.connect('mongodb+srv://harshdeep:wnEWyn2p9WqRwMz@cluster0.x4gkf.mongodb.net/meetups?retryWrites=true&w=majority');
       const db=client.db();
-      const meetupcollections=db.collections('meetups');
+      const meetupcollections=db.collection('meetups');
       const result=await meetupcollections.insertOne(data);
       console.log(result);
       client.close();
