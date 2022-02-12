@@ -1,5 +1,6 @@
 import { MongoClient } from "mongodb";
 import MeetupList from "../components/meetups/MeetupList";
+import Head from 'next/head'
 const meetups=[
     {
           id:'1',
@@ -23,7 +24,13 @@ const meetups=[
     }
 ]
 function HomePage(props) {
-    return <MeetupList meetups={props.meeting}/>
+    return <>
+    <Head>
+    <title>Meetups</title>
+    <meta name="description" content="List of meetups"/>
+    </Head>
+    <MeetupList meetups={props.meeting}/>
+    </>
 }
 // export async function getServerSideProps(context){
 //       const req=context.req;
