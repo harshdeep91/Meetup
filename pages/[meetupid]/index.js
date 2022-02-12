@@ -1,6 +1,7 @@
 import Meetupdetails from "../../components/meetups/Meetupdetails";
 import { MongoClient,ObjectId} from "mongodb";
 import Head from 'next/head'
+import URL from "../../key";
 function DetailPage(props) {
     return <>
     <Head>
@@ -11,7 +12,7 @@ function DetailPage(props) {
     </>
 }
 export async function getStaticPaths(){
-    const client=await MongoClient.connect('mongodb+srv://harshdeep:wnEWyn2p9WqRwMz@cluster0.x4gkf.mongodb.net/meetups?retryWrites=true&w=majority');
+    const client=await MongoClient.connect(URL);
 const db=client.db();
 const meetupcollections=db.collection('meetups');
 const data=await meetupcollections.find({},{_id:1}).toArray();
@@ -24,7 +25,7 @@ client.close();
 export async function getStaticProps(context){
     //fetch data from api
 const meetupId=context.params.meetupid;
-const client=await MongoClient.connect('mongodb+srv://harshdeep:wnEWyn2p9WqRwMz@cluster0.x4gkf.mongodb.net/meetups?retryWrites=true&w=majority');
+const client=await MongoClient.connect(URL);
 const db=client.db();
 const meetupcollections=db.collection('meetups');
 const data=await meetupcollections.findOne({_id:ObjectId(meetupId)});
