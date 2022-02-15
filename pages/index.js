@@ -1,7 +1,6 @@
 import { MongoClient } from "mongodb";
 import MeetupList from "../components/meetups/MeetupList";
 import Head from 'next/head'
-import URL from '../key'
 const meetups=[
     {
           id:'1',
@@ -47,7 +46,7 @@ function HomePage(props) {
 // }
 export async function getStaticProps(){
 //fetch data from api 
-const client=await MongoClient.connect(URL);
+const client=await MongoClient.connect(process.env.URL);
 const db=client.db();
 const meetupcollections=db.collection('meetups');
 const data=await meetupcollections.find().toArray();

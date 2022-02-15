@@ -1,11 +1,10 @@
 import { MongoClient } from "mongodb";
-import URL from '../../key'
 async function handler(req,res) {
     if(req.method==='POST')
     {
         const data=req.body;
         // const {title,img,address,description}=data;
-      const client=await MongoClient.connect(URL);
+      const client=await MongoClient.connect(process.env.URL);
       const db=client.db();
       const meetupcollections=db.collection('meetups');
       const result=await meetupcollections.insertOne(data);
