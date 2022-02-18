@@ -1,4 +1,3 @@
-import { MongoClient } from "mongodb";
 import MeetupList from "../components/meetups/MeetupList";
 import Head from 'next/head'
 const meetups=[
@@ -32,25 +31,12 @@ function HomePage(props) {
     <MeetupList meetups={props.meeting}/>
     </>
 }
-// export async function getServerSideProps(context){
-//       const req=context.req;
-//       const res=context.res;
-//       //this will update every server request
-//       // but problem is when we dont want to reload every request(when our content not updated frequently)
-//       return {
-//             props:{
-//                   meeting:meetups
-//             },
-  
-//       };
-// }
 export async function getStaticProps(){
 //fetch data from api 
-const client=await MongoClient.connect(process.env.URL);
-const db=client.db();
-const meetupcollections=db.collection('meetups');
-const data=await meetupcollections.find().toArray();
-client.close();
+
+const response=await fetch('http://localhost:3000/api/homepage');
+const data=await response.json();
+console.log(data);
 // for(let d of data)
    
 const meet= data.map((d)=>{

@@ -1,3 +1,11 @@
 .details{
     text-align: center ;
 }
+.button{
+    box-shadow: 5px;
+    color: white;
+    background-color: red;
+     margin: 5%;
+     padding: 1%;
+    font-size: large;
+}

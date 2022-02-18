@@ -5,6 +5,7 @@ import {useRouter} from 'next/router';
 function MeetupItem(props) {
   const router=useRouter();
   function detailhandler(){
+    
       router.push('/'+props.id);
   }
   return (
