@@ -34,7 +34,7 @@ const meetupcollections=db.collection('meetups');
 const data=await meetupcollections.find({},{_id:1}).toArray();
 client.close();
     return {
-          fallback:true, 
+          fallback:false, 
          paths:data.map(d=>({params:{meetupid:d._id.toString()}}))
     }
 }
