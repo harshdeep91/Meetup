@@ -4,10 +4,19 @@ import Head from 'next/head'
 import {useRouter} from 'next/router'
 function DetailPage(props) {
     const router=useRouter();
-    function delet(){
-        
-        console.log("yes");
-        router.push('/');
+    async function delet(){
+        const response=await fetch('/api/delete',{
+            method:'DELETE',
+            body:JSON.stringify(props.meetupdata.id),
+            headers:{
+                'Content-type':'application/json'
+            }
+          });
+
+        //   console.log(ObjectId(props.meetupdata.id));
+        //   const data=await response.json();
+        //   console.log(data);
+          router.push('/'); 
     }
     return <>
     <Head>

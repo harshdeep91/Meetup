@@ -36,7 +36,6 @@ export async function getStaticProps(){
 
 const response=await fetch('http://localhost:3000/api/homepage');
 const data=await response.json();
-console.log(data);
 // for(let d of data)
    
 const meet= data.map((d)=>{
