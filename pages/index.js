@@ -32,7 +32,7 @@ function HomePage(props) {
     <MeetupList meetups={props.meeting}/>
     </>
 }
-export async function getServerSideProps(){
+export async function getStaticProps(){
 //fetch data from api 
 const client=await MongoClient.connect(process.env.URL);
       const db=client.db();
@@ -53,7 +53,8 @@ const meet= data.map((d)=>{
        return {
         props:{
               meeting:meet
-        }
+        },
+        revalidate:1
   };
 }
 export default HomePage;
