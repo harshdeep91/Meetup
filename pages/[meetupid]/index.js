@@ -27,24 +27,25 @@ function DetailPage(props) {
     
     </>
 }
-export async function getStaticPaths(){
-    const client=await MongoClient.connect(process.env.URL);
-const db=client.db();
-const meetupcollections=db.collection('meetups');
-const data=await meetupcollections.find({},{_id:1}).toArray();
-client.close();
-    return {
-          fallback:true, 
-         paths:data.map(d=>({params:{meetupid:d._id.toString()}}))
-    }
-}
-export async function getStaticProps(context){
+// export async function getStaticPaths(){
+//     const client=await MongoClient.connect(process.env.URL);
+// const db=client.db();
+// const meetupcollections=db.collection('meetups');
+// const data=await meetupcollections.find({},{_id:1}).toArray();
+// client.close();
+//     return {
+//           fallback:true, 
+//          paths:data.map(d=>({params:{meetupid:d._id.toString()}}))
+//     }
+// }
+export async function getServerSideProps(context){
     //fetch data from api
 const meetupId=context.params.meetupid;
 const client=await MongoClient.connect(process.env.URL);
 const db=client.db();
 const meetupcollections=db.collection('meetups');
 const data=await meetupcollections.findOne({_id:ObjectId(meetupId)});
+
 client.close();
           return {
             props:{
