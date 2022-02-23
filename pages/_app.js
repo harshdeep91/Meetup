@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
       NProgress.start()
     }
     const handleStop = () => {
-      // NProgress.done()
+      NProgress.done()
     }
 
     router.events.on('routeChangeStart', handleStart)
