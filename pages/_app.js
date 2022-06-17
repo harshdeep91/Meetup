@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps }) {
     const handleStop = () => {
       NProgress.done()
     }
+    
 
     router.events.on('routeChangeStart', handleStart)
     router.events.on('routeChangeComplete', handleStop)
