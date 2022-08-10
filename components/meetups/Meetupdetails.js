@@ -14,7 +14,7 @@ const Meetupdetails = (props) => {
 //     }
     return (
          <div className={classes.details}>
-        <img src={props.img} alt="halua" width={500} height={500}/>
+        <img src={props.img} alt="halua" width={700} height={500}/>
         <h1>{props.title}</h1>
         <h2>{props.description}</h2>
         <button className={classes.button} onClick={props.delet}>Delete</button>
