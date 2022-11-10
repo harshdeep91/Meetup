@@ -8,7 +8,8 @@ function MainNavigation() {
       <nav>
         <ul>
           <li>
-            <Link href='/'>All Meetups</Link>
+            <Link href='/'>All Meetups</Link> 
+            {/* we are using "link" instea of "a" here to avoid any lost state while clicking on link */}
           </li>
           <li>
             <Link href='/new-meetup'>Add New Meetup</Link>
