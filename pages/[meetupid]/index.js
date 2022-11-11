@@ -22,7 +22,8 @@ function DetailPage(props) {
     <Head>
     <title>{props.meetupdata.title}</title>
     <meta name="description" content={props.meetupdata.description}/>
-    </Head>
+        </Head>
+        {console.log(props)}
     <Meetupdetails img={props.meetupdata.img} title={props.meetupdata.title} description={props.meetupdata.description} address={props.meetupdata.address} delet={delet}/>
     
     </>
@@ -53,7 +54,8 @@ client.close();
                       id:data._id.toString(),
                       title:data.title,
                       address:data.address,
-                      img:data.image
+                      img: data.image,
+                      description: data.description
                   }
             }
       };
