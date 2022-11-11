@@ -23,7 +23,7 @@ function DetailPage(props) {
     <title>{props.meetupdata.title}</title>
     <meta name="description" content={props.meetupdata.description}/>
     </Head>
-    <Meetupdetails img={props.meetupdata.img} title={props.meetupdata.title} description={props.meetupdata.address} address={props.meetupdata.address} delet={delet}/>
+    <Meetupdetails img={props.meetupdata.img} title={props.meetupdata.title} description={props.meetupdata.description} address={props.meetupdata.address} delet={delet}/>
     
     </>
 }
